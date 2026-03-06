@@ -772,7 +772,6 @@ process Eddy_Topup {
         mrconvert $b0s_corrected b0_corrected.nii.gz -coord 3 0 -axes 0,1,2 -nthreads 1
         bet b0_corrected.nii.gz ${sid}__b0_bet.nii.gz -m -R\
             -f $params.bet_topup_before_eddy_f
-        $params.eddy_cmd --help
         scil_prepare_eddy_command.py $dwi $bval $bvec ${sid}__b0_bet_mask.nii.gz\
             --topup $params.prefix_topup --eddy_cmd $params.eddy_cmd\
             --b0_thr $params.b0_thr_extract_b0\
@@ -781,7 +780,7 @@ process Eddy_Topup {
             --n_reverse ${number_rev_dwi}\
             --lsr_resampling\
             $slice_drop_flag\
-            --eddy_options "--niter=8 --fwhm=10,8,4,2,0,0,0,0 --estimate_move_by_susceptibility --very_verbose"
+            --eddy_options "--niter=8 --fwhm=10,8,4,2,0,0,0,0 --very_verbose"
     echo "===== eddy command ====="
     cat -n eddy.sh
     echo "========================"
