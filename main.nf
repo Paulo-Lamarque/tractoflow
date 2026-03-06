@@ -779,7 +779,10 @@ process Eddy_Topup {
             --readout $readout --out_script --fix_seed\
             --n_reverse ${number_rev_dwi}\
             --lsr_resampling\
-            $slice_drop_flag
+            $slice_drop_flag \
+    echo "===== eddy.sh contents ====="
+    cat -n eddy.sh
+    echo "============================"
     echo "--niter=8" >> eddy.sh
     echo "--fwhm=10,8,4,2,0,0,0,0" >> eddy.sh
     echo "--estimate_move_by_susceptibility" >> eddy.sh
