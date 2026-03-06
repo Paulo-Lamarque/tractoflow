@@ -779,17 +779,11 @@ process Eddy_Topup {
             --readout $readout --out_script --fix_seed\
             --n_reverse ${number_rev_dwi}\
             --lsr_resampling\
-            $slice_drop_flag
-    echo "===== eddy.sh contents before additions ====="
+            $slice_drop_flag\
+            --eddy_options "--niter=8 --fwhm=10,8,4,2,0,0,0,0 --estimate_move_by_susceptibility --very_verbose"
+    echo "===== eddy command ====="
     cat -n eddy.sh
-    echo "============================================="
-    echo "--niter=8" >> eddy.sh
-    echo "--fwhm=10,8,4,2,0,0,0,0" >> eddy.sh
-    echo "--estimate_move_by_susceptibility" >> eddy.sh
-    echo "--very_verbose" >> eddy.sh
-    echo "===== eddy.sh contents after additions ====="
-    cat -n eddy.sh
-    echo "============================================"
+    echo "========================"
     sh eddy.sh
         fslmaths dwi_eddy_corrected.nii.gz -thr 0 ${sid}__dwi_corrected.nii.gz
 
