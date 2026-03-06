@@ -783,9 +783,9 @@ process Eddy_Topup {
     echo "===== eddy.sh contents before additions ====="
     cat -n eddy.sh
     echo "============================================="
-    echo "--niter=8\" >> eddy.sh
-    echo "--fwhm=10,8,4,2,0,0,0,0\" >> eddy.sh
-    echo "--estimate_move_by_susceptibility\" >> eddy.sh
+    echo "--niter=8" >> eddy.sh
+    echo "--fwhm=10,8,4,2,0,0,0,0" >> eddy.sh
+    echo "--estimate_move_by_susceptibility" >> eddy.sh
     echo "--very_verbose" >> eddy.sh
     echo "===== eddy.sh contents after additions ====="
     cat -n eddy.sh
