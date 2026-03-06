@@ -780,21 +780,21 @@ process Eddy_Topup {
             --n_reverse ${number_rev_dwi}\
             --lsr_resampling\
             $slice_drop_flag
-	echo "--niter=8" >> eddy.sh
-	echo "--fwhm=10,8,4,2,0,0,0,0" >> eddy.sh
-	echo "--estimate_move_by_susceptibility" >> eddy.sh
-	echo "--very_verbose" >> eddy.sh
-	sh eddy.sh
+    echo "--niter=8" >> eddy.sh
+    echo "--fwhm=10,8,4,2,0,0,0,0" >> eddy.sh
+    echo "--estimate_move_by_susceptibility" >> eddy.sh
+    echo "--very_verbose" >> eddy.sh
+    sh eddy.sh
         fslmaths dwi_eddy_corrected.nii.gz -thr 0 ${sid}__dwi_corrected.nii.gz
 
-	if [[ $number_rev_dwi -eq 0 ]]
-	then
-	   mv dwi_eddy_corrected.eddy_rotated_bvecs ${sid}__dwi_eddy_corrected.bvec
+    if [[ $number_rev_dwi -eq 0 ]]
+    then
+       mv dwi_eddy_corrected.eddy_rotated_bvecs ${sid}__dwi_eddy_corrected.bvec
           mv $bval ${sid}__bval_eddy
-	else
-	   scil_validate_and_correct_eddy_gradients.py dwi_eddy_corrected.eddy_rotated_bvecs $bval ${number_rev_dwi} ${sid}__dwi_eddy_corrected.bvec ${sid}__bval_eddy
-	fi
-	"""
+    else
+       scil_validate_and_correct_eddy_gradients.py dwi_eddy_corrected.eddy_rotated_bvecs $bval ${number_rev_dwi} ${sid}__dwi_eddy_corrected.bvec ${sid}__bval_eddy
+    fi
+    """
 }
 
 dwi_for_eddy
