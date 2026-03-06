@@ -779,7 +779,7 @@ process Eddy_Topup {
             --readout $readout --out_script --fix_seed\
             --n_reverse ${number_rev_dwi}\
             --lsr_resampling\
-            $slice_drop_flag \
+            $slice_drop_flag
     echo "===== eddy.sh contents before additions ====="
     cat -n eddy.sh
     echo "============================================="
