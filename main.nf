@@ -779,8 +779,8 @@ process Eddy_Topup {
             --readout $readout --out_script --fix_seed\
             --n_reverse ${number_rev_dwi}\
             --lsr_resampling\
-            $slice_drop_flag\
-            --eddy_options "--niter=8 --fwhm=10,8,4,2,0,0,0,0 --very_verbose"
+            $slice_drop_flag
+    echo "--niter=8 --fwhm=10,8,4,2,0,0,0,0 --estimate_move_by_susceptibility --very_verbose" >> eddy.sh
     echo "===== eddy command ====="
     cat -n eddy.sh
     echo "========================"
